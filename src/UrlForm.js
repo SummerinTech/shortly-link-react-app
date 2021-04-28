@@ -8,8 +8,18 @@ const UrlForm = () => {
 	const [resultUrl, setResultUrl] = useState({});
 	const shortenUrl = `https://api.shrtco.de/v2/shorten?url=${url}`;
 
+	const validateUrl = () => {
+		if (url.indexOf("http") === 0 || url.indexOf("www.") === 0) {
+			setError(false);
+		} else {
+			setError(true);
+		}
+	};
+
 	async function handleSubmit(e) {
 		e.preventDefault();
+		setLoading(true);
+		validateUrl();
 
 		try {
 			let response = await fetch(shortenUrl);
@@ -22,6 +32,7 @@ const UrlForm = () => {
 			setLoading(false);
 		}
 	}
+
 	return (
 		<div className="mt-10 sm:mt-12">
 			<form onSubmit={handleSubmit}>
@@ -39,7 +50,6 @@ const UrlForm = () => {
 							}}
 							className="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
 						></input>
-						{console.log(url)}
 					</div>
 					<div className="mt-3 sm:mt-0 sm:ml-3">
 						<button
@@ -51,6 +61,11 @@ const UrlForm = () => {
 					</div>
 				</div>
 			</form>
+			{error && (
+				<p className="mt-3 text-md font-bold text-red-400 sm:mt-4">
+					Please enter a valid Url
+				</p>
+			)}
 			{resultUrl.ok ? (
 				<>
 					<div className="mt-5 flex flex-col items-center justify-center rounded-md bg-white py-4">
