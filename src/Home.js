@@ -1,4 +1,5 @@
 import { memo } from "react";
+import UrlForm from "./UrlForm";
 
 const Home = () => (
 	<div className="py-20">
@@ -14,6 +15,7 @@ const Home = () => (
 					Build your brand's recognition and get detailed insights on how your
 					links are performing
 				</p>
+				<UrlForm />
 			</div>
 			<div className="mt-12 large:relative">
 				<div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px6 lg:max-w-none lg:px-0">
