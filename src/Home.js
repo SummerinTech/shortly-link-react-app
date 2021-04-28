@@ -3,7 +3,7 @@ import { memo } from "react";
 const Home = () => (
 	<div className="lg:grid lg:grid-cols-2 mx-auto max-w-7xl lg:px-8 lg:gap-8 justify-center">
 		<div className="lg: py-24 ">
-			<h1 className="text-white text-4xl mt-4 font-extrabold sm:text-6xl lg:mt-6 tracking-tight">
+			<h1 className="text-white text-4xl mt-4 font-extrabold sm:text-6xl lg:mt-6 tracking-tighty">
 				<span className="block">More than just </span>
 				<span className="block">shorter links</span>
 			</h1>
