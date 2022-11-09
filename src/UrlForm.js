@@ -66,7 +66,7 @@ const UrlForm = () => {
 					Please enter a valid Url
 				</p>
 			)}
-			{resultUrl.ok ? (
+			{resultUrl.ok && !error ? (
 				<>
 					<div className="mt-5 flex flex-col items-center justify-center rounded-md bg-white py-4">
 						<p className="text-gray-900 sm:mt-4">Link Created</p>
